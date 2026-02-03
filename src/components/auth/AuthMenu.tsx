@@ -55,7 +55,7 @@ export function AuthMenu() {
         >
           {user ? initialsFromName(user.name) : "HR"}
         </div>
-        <span className="hidden sm:inline">
+        <span className="text-sm font-semibold">
           {user ? roleMeta[user.role].label : "Sign in"}
         </span>
       </summary>

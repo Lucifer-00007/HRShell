@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { Badge } from "@/src/components/ui/Badge";
 import { Card } from "@/src/components/ui/Card";
-import { ThemeToggle } from "@/src/components/theme/ThemeToggle";
-import { AuthMenu } from "@/src/components/auth/AuthMenu";
 import { modules } from "@/src/config/modules";
 import { roleMeta } from "@/src/config/rbac";
 import { workspaceRoot } from "@/src/config/routes";
+import { LandingHeaderActions } from "@/src/components/landing/LandingHeaderActions";
 
 const highlights = [
   {
@@ -39,7 +38,10 @@ const experienceSteps = [
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(90,111,255,0.2),_transparent_40%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.16),_transparent_45%)] pb-16">
+    <div
+      id="top"
+      className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(90,111,255,0.2),_transparent_40%),radial-gradient(circle_at_top_right,_rgba(16,185,129,0.16),_transparent_45%)] pb-16"
+    >
       <header className="sticky top-0 z-20 border-b border-white/60 bg-white/80 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/80">
         <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-4 px-6 py-4">
           <div className="flex items-center gap-3">
@@ -62,16 +64,7 @@ export default function LandingPage() {
               Modules
             </a>
           </nav>
-          <div className="flex items-center gap-3">
-            <ThemeToggle className="hidden sm:inline-flex" />
-            <AuthMenu />
-            <Link
-              href={workspaceRoot}
-              className="hidden rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-slate-800 md:inline-flex dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
-            >
-              Enter Workspace
-            </Link>
-          </div>
+          <LandingHeaderActions />
         </div>
       </header>
 
@@ -225,6 +218,63 @@ export default function LandingPage() {
             ))}
           </div>
         </section>
+
+        <footer className="mt-8 border-t border-white/60 pb-10 pt-8 text-sm text-slate-600 dark:border-slate-800/70 dark:text-slate-300">
+          <div className="grid gap-6 md:grid-cols-[1.5fr_1fr_1fr]">
+            <div className="space-y-3">
+              <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">HRMS Studio</p>
+              <p className="text-sm text-slate-600 dark:text-slate-300">
+                A dedicated landing hub for role-based HRMS previews and secure workspace entry.
+              </p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                Essentials
+              </p>
+              <div className="mt-3 flex flex-col gap-2 text-sm">
+                <a className="transition hover:text-slate-900 dark:hover:text-white" href="#features">
+                  Features
+                </a>
+                <a className="transition hover:text-slate-900 dark:hover:text-white" href="#roles">
+                  Roles
+                </a>
+                <a className="transition hover:text-slate-900 dark:hover:text-white" href="#modules">
+                  Modules
+                </a>
+                <Link className="transition hover:text-slate-900 dark:hover:text-white" href={workspaceRoot}>
+                  Workspace
+                </Link>
+              </div>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                Contact
+              </p>
+              <div className="mt-3 flex flex-col gap-2 text-sm">
+                <a className="transition hover:text-slate-900 dark:hover:text-white" href="mailto:hello@hrms.studio">
+                  hello@hrms.studio
+                </a>
+                <a className="transition hover:text-slate-900 dark:hover:text-white" href="#top">
+                  Back to top
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
+            <span>© 2026 HRMS Studio. All rights reserved.</span>
+            <div className="flex items-center gap-3">
+              <Link className="transition hover:text-slate-900 dark:hover:text-white" href="/privacy">
+                Privacy
+              </Link>
+              <Link className="transition hover:text-slate-900 dark:hover:text-white" href="/terms">
+                Terms
+              </Link>
+              <Link className="transition hover:text-slate-900 dark:hover:text-white" href="/support">
+                Support
+              </Link>
+            </div>
+          </div>
+        </footer>
       </main>
     </div>
   );
