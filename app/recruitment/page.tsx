@@ -11,6 +11,7 @@ export default function RecruitmentPage() {
         "Interview scheduling placeholders",
         "Offer workflow preview"
       ]}
+      moduleId="recruitment"
     />
   );
 }

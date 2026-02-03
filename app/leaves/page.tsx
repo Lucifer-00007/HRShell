@@ -11,6 +11,7 @@ export default function LeavesPage() {
         "Leave balance summary cards",
         "Policy-aware validation placeholders"
       ]}
+      moduleId="leaves"
     />
   );
 }

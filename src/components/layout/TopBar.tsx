@@ -1,9 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/src/components/ui/Button";
 import { SparkIcon } from "@/src/components/icons";
 import { ThemeToggle } from "@/src/components/theme/ThemeToggle";
+import { AuthMenu } from "@/src/components/auth/AuthMenu";
+import { useAuth } from "@/src/components/auth/AuthProvider";
+import { roleControls } from "@/src/config/rbac";
 
 export function TopBar() {
+  const { role } = useAuth();
+  const primaryAction = role ? roleControls[role][0] : null;
+
   return (
     <header className="sticky top-0 z-20 border-b border-slate-200/70 bg-white/80 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/80">
       <div className="mx-auto flex w-full max-w-[1440px] items-center gap-4 px-6 py-4">
@@ -20,8 +28,8 @@ export function TopBar() {
             />
           </div>
           <Button variant="outline" className="hidden md:inline-flex">
-            <SparkIcon className="h-4 w-4" />
-            Quick Create
+            {!primaryAction ? <SparkIcon className="h-4 w-4" /> : null}
+            {primaryAction ? primaryAction.label : "Quick Create"}
           </Button>
         </div>
         <div className="flex items-center gap-3">
@@ -29,7 +37,7 @@ export function TopBar() {
           <div className="hidden text-xs font-semibold uppercase tracking-wide text-slate-500 lg:block dark:text-slate-400">
             Workspace: HR
           </div>
-          <div className="h-9 w-9 rounded-full bg-gradient-to-br from-slate-900 to-slate-700 dark:from-slate-200 dark:to-slate-400" />
+          <AuthMenu />
         </div>
       </div>
     </header>

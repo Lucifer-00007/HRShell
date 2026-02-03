@@ -23,7 +23,7 @@ export type ModuleConfig = {
   icon: ComponentType<{ className?: string }>;
 };
 
-export const modules: ModuleConfig[] = [
+export const modules = [
   {
     id: "employees",
     name: "Employees",
@@ -104,7 +104,9 @@ export const modules: ModuleConfig[] = [
     status: "ui-only",
     icon: ReceiptIcon
   }
-];
+] as const satisfies ModuleConfig[];
+
+export type ModuleId = (typeof modules)[number]["id"];
 
 export const moduleGroups: Record<ModuleGroup, { label: string; description: string }> = {
   core: {

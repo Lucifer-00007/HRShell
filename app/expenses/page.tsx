@@ -11,6 +11,7 @@ export default function ExpensesPage() {
         "Policy validation placeholders",
         "Receipts and notes UI"
       ]}
+      moduleId="expenses"
     />
   );
 }

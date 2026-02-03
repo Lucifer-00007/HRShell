@@ -11,6 +11,7 @@ export default function AttendancePage() {
         "Timesheet and overtime summaries",
         "Calendar view for time tracking"
       ]}
+      moduleId="attendance"
     />
   );
 }

@@ -1,10 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { modules, moduleGroups } from "@/src/config/modules";
 import { Badge } from "@/src/components/ui/Badge";
 import { Card } from "@/src/components/ui/Card";
 import { cn } from "@/src/lib/cn";
+import { useAuth } from "@/src/components/auth/AuthProvider";
+import { accessLevelMeta, getModuleAccess } from "@/src/config/rbac";
 
 export function ModuleLauncher() {
+  const { role } = useAuth();
+
   return (
     <div className="space-y-8">
       {(Object.keys(moduleGroups) as Array<keyof typeof moduleGroups>).map((groupKey) => {
@@ -21,11 +27,15 @@ export function ModuleLauncher() {
               </h2>
             </div>
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {groupModules.map((module) => (
-                <Link key={module.id} href={module.href} className="group">
+              {groupModules.map((module) => {
+                const access = getModuleAccess(role, module.id);
+                const accessMeta = accessLevelMeta[access];
+                const card = (
                   <Card
                     className={cn(
                       "h-full border-slate-200/80 bg-gradient-to-br p-5 transition group-hover:-translate-y-1 group-hover:shadow-lg dark:border-slate-800/80",
+                      access === "none" && "opacity-60",
+                      access === "read" && "border-amber-200/70 dark:border-amber-900/50",
                       module.accent
                     )}
                   >
@@ -33,9 +43,12 @@ export function ModuleLauncher() {
                       <div className="rounded-2xl bg-white/80 p-2 text-slate-800 shadow-sm dark:bg-slate-950/70 dark:text-slate-200">
                         <module.icon className="h-5 w-5" />
                       </div>
-                      <Badge tone={module.status === "mocked" ? "success" : "warning"}>
-                        {module.status === "mocked" ? "Mocked" : "UI only"}
-                      </Badge>
+                      <div className="flex flex-col items-end gap-2">
+                        <Badge tone={accessMeta.tone}>{accessMeta.label}</Badge>
+                        <Badge tone={module.status === "mocked" ? "success" : "warning"}>
+                          {module.status === "mocked" ? "Mocked" : "UI only"}
+                        </Badge>
+                      </div>
                     </div>
                     <h3 className="mt-4 text-lg font-semibold text-slate-900 dark:text-slate-100">
                       {module.name}
@@ -44,8 +57,22 @@ export function ModuleLauncher() {
                       {module.description}
                     </p>
                   </Card>
-                </Link>
-              ))}
+                );
+
+                if (access === "none") {
+                  return (
+                    <div key={module.id} className="group cursor-not-allowed" aria-disabled>
+                      {card}
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link key={module.id} href={module.href} className="group">
+                    {card}
+                  </Link>
+                );
+              })}
             </div>
           </section>
         );

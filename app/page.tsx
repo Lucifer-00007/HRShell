@@ -2,6 +2,7 @@ import { ModuleLauncher } from "@/src/components/layout/ModuleLauncher";
 import { PageHeader } from "@/src/components/layout/PageHeader";
 import { Card } from "@/src/components/ui/Card";
 import { Badge } from "@/src/components/ui/Badge";
+import { HomeAuthOverview } from "@/src/components/home/HomeAuthOverview";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,8 @@ export default function HomePage() {
         breadcrumbs={[{ label: "Home" }]}
         actions={<Badge tone="success">Frontend only</Badge>}
       />
+
+      <HomeAuthOverview />
 
       <section className="grid gap-4 md:grid-cols-3">
         {[

@@ -11,6 +11,7 @@ export default function ContractsPage() {
         "Salary & benefits placeholders",
         "Audit-ready contract timeline"
       ]}
+      moduleId="contracts"
     />
   );
 }

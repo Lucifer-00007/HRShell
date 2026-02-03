@@ -11,6 +11,7 @@ export default function PayrollPage() {
         "Approval checkpoints",
         "Export & filing placeholders"
       ]}
+      moduleId="payroll"
     />
   );
 }
