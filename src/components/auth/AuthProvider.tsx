@@ -12,6 +12,7 @@ export type AuthContextValue = {
   isHydrated: boolean;
   users: AuthUser[];
   signIn: (userId: string) => void;
+  authenticate: (email: string, password: string) => AuthUser | null;
   signOut: () => void;
 };
 
@@ -51,6 +52,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     localStorage.removeItem(authStorageKey);
   }, []);
 
+  const authenticate = useCallback(
+    (email: string, password: string) => {
+      const normalizedEmail = email.trim().toLowerCase();
+      const matched = authUsers.find(
+        (entry) =>
+          entry.email.toLowerCase() === normalizedEmail && entry.password === password.trim()
+      );
+      if (!matched) {
+        return null;
+      }
+      setUser(matched);
+      if (typeof window !== "undefined") {
+        localStorage.setItem(authStorageKey, matched.id);
+      }
+      return matched;
+    },
+    []
+  );
+
   const value = useMemo<AuthContextValue>(
     () => ({
       user,
@@ -59,9 +79,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       isHydrated,
       users: authUsers,
       signIn,
+      authenticate,
       signOut
     }),
-    [user, isHydrated, signIn, signOut]
+    [user, isHydrated, signIn, authenticate, signOut]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

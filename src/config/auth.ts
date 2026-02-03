@@ -7,7 +7,10 @@ export type AuthUser = {
   role: Role;
   title: string;
   team: string;
+  password: string;
 };
+
+export const demoPassword = "demo1234";
 
 export const authUsers: AuthUser[] = [
   {
@@ -16,7 +19,8 @@ export const authUsers: AuthUser[] = [
     email: "avery.chen@acmehr.com",
     role: "employee",
     title: "Customer Success Associate",
-    team: "Support"
+    team: "Support",
+    password: demoPassword
   },
   {
     id: "hr-mia",
@@ -24,7 +28,8 @@ export const authUsers: AuthUser[] = [
     email: "mia.patel@acmehr.com",
     role: "hr",
     title: "HR Business Partner",
-    team: "People Ops"
+    team: "People Ops",
+    password: demoPassword
   },
   {
     id: "admin-jordan",
@@ -32,7 +37,8 @@ export const authUsers: AuthUser[] = [
     email: "jordan.kim@acmehr.com",
     role: "admin",
     title: "HR Systems Admin",
-    team: "Operations"
+    team: "Operations",
+    password: demoPassword
   }
 ];
 

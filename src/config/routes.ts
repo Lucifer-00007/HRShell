@@ -1,4 +1,5 @@
 export const landingRoot = "/";
+export const signInRoot = "/signin";
 export const workspaceRoot = "/workspace";
 
 export function getWorkspacePath(path: string) {

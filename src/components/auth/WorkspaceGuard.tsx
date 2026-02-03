@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/src/components/auth/AuthProvider";
-import { landingRoot } from "@/src/config/routes";
+import { signInRoot } from "@/src/config/routes";
 import { Card } from "@/src/components/ui/Card";
 import { Badge } from "@/src/components/ui/Badge";
 
@@ -14,7 +14,7 @@ export function WorkspaceGuard({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (isHydrated && !isSignedIn) {
-      router.replace(landingRoot);
+      router.replace(signInRoot);
     }
   }, [isHydrated, isSignedIn, router]);
 
@@ -37,7 +37,7 @@ export function WorkspaceGuard({ children }: { children: ReactNode }) {
         <Card className="w-full max-w-md p-6 text-center">
           <Badge tone="warning">Restricted</Badge>
           <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">
-            Redirecting to the landing page.
+            Redirecting to the sign-in page.
           </p>
         </Card>
       </div>

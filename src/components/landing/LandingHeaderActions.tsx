@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { ThemeToggle } from "@/src/components/theme/ThemeToggle";
-import { SignInDialog } from "@/src/components/auth/SignInDialog";
 import { useAuth } from "@/src/components/auth/AuthProvider";
 import { roleMeta } from "@/src/config/rbac";
-import { workspaceRoot } from "@/src/config/routes";
+import { signInRoot, workspaceRoot } from "@/src/config/routes";
 
 export function LandingHeaderActions() {
   const { isSignedIn, user, signOut } = useAuth();
@@ -36,7 +35,12 @@ export function LandingHeaderActions() {
           </button>
         </div>
       ) : (
-        <SignInDialog />
+        <Link
+          href={signInRoot}
+          className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-700 transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
+        >
+          Sign in
+        </Link>
       )}
     </div>
   );

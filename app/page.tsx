@@ -3,8 +3,8 @@ import { Badge } from "@/src/components/ui/Badge";
 import { Card } from "@/src/components/ui/Card";
 import { modules } from "@/src/config/modules";
 import { roleMeta } from "@/src/config/rbac";
-import { workspaceRoot } from "@/src/config/routes";
 import { LandingHeaderActions } from "@/src/components/landing/LandingHeaderActions";
+import { WorkspaceLink } from "@/src/components/landing/WorkspaceLink";
 
 const highlights = [
   {
@@ -80,12 +80,9 @@ export default function LandingPage() {
               workspace that adapts to employees, HR teams, and admins.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <Link
-                href={workspaceRoot}
-                className="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700"
-              >
+              <WorkspaceLink className="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700">
                 Launch workspace
-              </Link>
+              </WorkspaceLink>
               <a
                 href="#roles"
                 className="rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
@@ -192,12 +189,9 @@ export default function LandingPage() {
                 Preview the dashboard footprint
               </h2>
             </div>
-            <Link
-              href={workspaceRoot}
-              className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-700 transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200"
-            >
+            <WorkspaceLink className="rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-700 transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200">
               View workspace
-            </Link>
+            </WorkspaceLink>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {modules.map((module) => (
@@ -241,9 +235,9 @@ export default function LandingPage() {
                 <a className="transition hover:text-slate-900 dark:hover:text-white" href="#modules">
                   Modules
                 </a>
-                <Link className="transition hover:text-slate-900 dark:hover:text-white" href={workspaceRoot}>
+                <WorkspaceLink className="transition hover:text-slate-900 dark:hover:text-white">
                   Workspace
-                </Link>
+                </WorkspaceLink>
               </div>
             </div>
             <div>
