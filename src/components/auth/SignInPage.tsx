@@ -98,8 +98,11 @@ export function SignInPage() {
             <p className="text-sm text-slate-600 dark:text-slate-300">
               Choose a role, enter demo credentials, and continue to the protected HRMS workspace.
             </p>
-            <Card className="rounded-3xl border-slate-200/70 bg-white/90 p-6 shadow-xl shadow-slate-900/5 dark:border-slate-800/70 dark:bg-slate-900/70">
-              <div className="flex flex-wrap items-center justify-between gap-3">
+            <Card className="rounded-3xl border-slate-200/70 bg-white/90 p-6 text-center shadow-xl shadow-slate-900/5 dark:border-slate-800/70 dark:bg-slate-900/70">
+              <div className="flex flex-col items-center gap-3">
+                <Badge tone={selectedUser?.badgeTone ?? "info"}>
+                  {selectedUser?.label ?? "Employee"}
+                </Badge>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                     Demo credentials
@@ -109,18 +112,15 @@ export function SignInPage() {
                     <span className="font-semibold"> {demoPassword}</span>.
                   </p>
                 </div>
-                <Badge tone={selectedUser?.badgeTone ?? "info"}>
-                  {selectedUser?.label ?? "Employee"}
-                </Badge>
               </div>
-              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              <div className="mt-5 grid gap-3 text-center sm:grid-cols-3">
                 {roleOptions.map((option) => (
                   <button
                     key={option.id}
                     type="button"
                     onClick={() => handleRoleChange(option.role)}
                     className={cn(
-                      "flex flex-col gap-2 rounded-2xl border px-3 py-3 text-left text-xs transition",
+                      "flex flex-col items-center gap-2 rounded-2xl border px-3 py-3 text-center text-xs transition",
                       selectedRole === option.role
                         ? "border-brand-500/70 bg-brand-50 ring-2 ring-brand-200/60"
                         : "border-slate-200 hover:border-slate-300 hover:bg-slate-50",
@@ -141,7 +141,7 @@ export function SignInPage() {
           </div>
 
           <Card className="rounded-3xl border-slate-200/70 bg-white/95 p-6 shadow-xl shadow-slate-900/10 dark:border-slate-800/70 dark:bg-slate-950/90">
-            <form className="space-y-5" onSubmit={handleSubmit}>
+            <form className="space-y-5 text-center" onSubmit={handleSubmit}>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Credentials
@@ -152,31 +152,19 @@ export function SignInPage() {
               </div>
 
               <div className="space-y-2">
-                <label
-                  htmlFor="email"
-                  className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
-                >
-                  Email
-                </label>
                 <input
                   id="email"
                   type="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   className="w-full rounded-xl border border-slate-200 bg-white/90 px-3 py-2 text-sm text-slate-700 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200"
-                  placeholder={selectedUser?.email}
+                  placeholder="Email"
                   autoComplete="username"
                   required
                 />
               </div>
 
               <div className="space-y-2">
-                <label
-                  htmlFor="password"
-                  className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400"
-                >
-                  Password
-                </label>
                 <div className="relative">
                   <input
                     id="password"
@@ -186,6 +174,7 @@ export function SignInPage() {
                     className="w-full rounded-xl border border-slate-200 bg-white/90 px-3 py-2 pr-20 text-sm text-slate-700 shadow-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-200"
                     autoComplete="current-password"
                     required
+                    placeholder="Password"
                   />
                   <button
                     type="button"
