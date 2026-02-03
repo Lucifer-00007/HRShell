@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:firebase": "next build && node -e \"const fs=require('fs'); fs.rmSync('.out',{recursive:true,force:true}); fs.renameSync('out','.out');\"",
     "start": "next start",
     "lint": "next lint",
     "msw:init": "msw init public/ --save",
