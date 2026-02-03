@@ -2,6 +2,7 @@ import { PageHeader } from "@/src/components/layout/PageHeader";
 import { ModulePlaceholder } from "@/src/components/layout/ModulePlaceholder";
 import { RoleGate } from "@/src/components/auth/RoleGate";
 import type { ModuleId } from "@/src/config/modules";
+import { workspaceRoot } from "@/src/config/routes";
 
 export function ModulePage({
   title,
@@ -20,7 +21,7 @@ export function ModulePage({
         <PageHeader
           title={title}
           description={description}
-          breadcrumbs={[{ label: "Home", href: "/" }, { label: title }]}
+          breadcrumbs={[{ label: "Workspace", href: workspaceRoot }, { label: title }]}
         />
         <ModulePlaceholder title={title} description={description} highlights={highlights} />
       </div>

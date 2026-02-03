@@ -9,6 +9,7 @@ import {
   UsersIcon,
   WalletIcon
 } from "@/src/components/icons";
+import { getWorkspacePath } from "@/src/config/routes";
 
 export type ModuleGroup = "core" | "operations" | "finance";
 
@@ -27,7 +28,7 @@ export const modules = [
   {
     id: "employees",
     name: "Employees",
-    href: "/employees",
+    href: getWorkspacePath("employees"),
     description: "People directory, profiles, and role management.",
     group: "core",
     accent: "from-brand-500/20 to-brand-500/5",
@@ -37,7 +38,7 @@ export const modules = [
   {
     id: "departments",
     name: "Departments",
-    href: "/departments",
+    href: getWorkspacePath("departments"),
     description: "Org structure, managers, and team assignments.",
     group: "core",
     accent: "from-emerald-500/20 to-emerald-500/5",
@@ -47,7 +48,7 @@ export const modules = [
   {
     id: "contracts",
     name: "Contracts",
-    href: "/contracts",
+    href: getWorkspacePath("contracts"),
     description: "Agreements, status tracking, and history.",
     group: "core",
     accent: "from-sky-500/20 to-sky-500/5",
@@ -57,7 +58,7 @@ export const modules = [
   {
     id: "leaves",
     name: "Leaves",
-    href: "/leaves",
+    href: getWorkspacePath("leaves"),
     description: "Requests, approvals, and balance tracking.",
     group: "operations",
     accent: "from-amber-500/20 to-amber-500/5",
@@ -67,7 +68,7 @@ export const modules = [
   {
     id: "attendance",
     name: "Attendance",
-    href: "/attendance",
+    href: getWorkspacePath("attendance"),
     description: "Daily check-ins, shifts, and timesheets.",
     group: "operations",
     accent: "from-indigo-500/20 to-indigo-500/5",
@@ -77,7 +78,7 @@ export const modules = [
   {
     id: "payroll",
     name: "Payroll",
-    href: "/payroll",
+    href: getWorkspacePath("payroll"),
     description: "Payslips, runs, and approvals (UI only).",
     group: "finance",
     accent: "from-rose-500/20 to-rose-500/5",
@@ -87,7 +88,7 @@ export const modules = [
   {
     id: "recruitment",
     name: "Recruitment",
-    href: "/recruitment",
+    href: getWorkspacePath("recruitment"),
     description: "Hiring pipelines and candidate journeys.",
     group: "operations",
     accent: "from-purple-500/20 to-purple-500/5",
@@ -97,7 +98,7 @@ export const modules = [
   {
     id: "expenses",
     name: "Expenses",
-    href: "/expenses",
+    href: getWorkspacePath("expenses"),
     description: "Spend submissions and approvals.",
     group: "finance",
     accent: "from-teal-500/20 to-teal-500/5",

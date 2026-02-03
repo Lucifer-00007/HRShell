@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { AppShell } from "@/src/components/layout/AppShell";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -22,9 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={spaceGrotesk.variable} suppressHydrationWarning>
       <body className="font-sans">
-        <Providers>
-          <AppShell>{children}</AppShell>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

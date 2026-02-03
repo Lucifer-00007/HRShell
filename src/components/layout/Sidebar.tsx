@@ -6,6 +6,7 @@ import { cn } from "@/src/lib/cn";
 import { moduleGroups, modules } from "@/src/config/modules";
 import { useAuth } from "@/src/components/auth/AuthProvider";
 import { getModuleAccess } from "@/src/config/rbac";
+import { workspaceRoot } from "@/src/config/routes";
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -23,10 +24,10 @@ export function Sidebar() {
               Overview
             </p>
             <Link
-              href="/"
+              href={workspaceRoot}
               className={cn(
                 "flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition",
-                pathname === "/"
+                pathname === workspaceRoot
                   ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
                   : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
               )}

@@ -1,6 +1,7 @@
 import { DepartmentsClient } from "@/src/components/departments/DepartmentsClient";
 import { PageHeader } from "@/src/components/layout/PageHeader";
 import { RoleGate } from "@/src/components/auth/RoleGate";
+import { workspaceRoot } from "@/src/config/routes";
 
 export default function DepartmentsPage() {
   return (
@@ -9,7 +10,7 @@ export default function DepartmentsPage() {
         <PageHeader
           title="Departments"
           description="Define org structures, managers, and reporting lines with mocked data."
-          breadcrumbs={[{ label: "Home", href: "/" }, { label: "Departments" }]}
+          breadcrumbs={[{ label: "Workspace", href: workspaceRoot }, { label: "Departments" }]}
         />
         <DepartmentsClient />
       </div>

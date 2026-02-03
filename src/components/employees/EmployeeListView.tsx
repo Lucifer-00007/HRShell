@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Employee } from "@/src/lib/schemas/employee";
 import { ListView, type ColumnDef } from "@/src/components/views/ListView";
 import { Badge } from "@/src/components/ui/Badge";
+import { getWorkspacePath } from "@/src/config/routes";
 
 const columns: ColumnDef<Employee>[] = [
   {
@@ -10,7 +11,7 @@ const columns: ColumnDef<Employee>[] = [
     cell: (employee) => (
       <div className="space-y-1">
         <Link
-          href={`/employees/${employee.id}`}
+          href={getWorkspacePath(`employees/${employee.id}`)}
           className="text-sm font-semibold text-slate-900 hover:text-brand-600 dark:text-slate-100"
         >
           {employee.firstName} {employee.lastName}

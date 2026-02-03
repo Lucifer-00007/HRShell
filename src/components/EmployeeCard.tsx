@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Employee } from "@/src/lib/schemas/employee";
 import { Card } from "@/src/components/ui/Card";
+import { getWorkspacePath } from "@/src/config/routes";
 
 type EmployeeCardProps = {
   employee: Employee;
@@ -28,7 +29,7 @@ export function EmployeeCard({ employee }: EmployeeCardProps) {
       <div className="mt-4 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
         <span>Hired {employee.hiredOn}</span>
         <Link
-          href={`/employees/${employee.id}`}
+          href={getWorkspacePath(`employees/${employee.id}`)}
           className="font-semibold text-brand-600 hover:text-brand-500"
         >
           View

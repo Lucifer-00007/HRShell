@@ -7,6 +7,7 @@ import { ThemeToggle } from "@/src/components/theme/ThemeToggle";
 import { AuthMenu } from "@/src/components/auth/AuthMenu";
 import { useAuth } from "@/src/components/auth/AuthProvider";
 import { roleControls } from "@/src/config/rbac";
+import { workspaceRoot } from "@/src/config/routes";
 
 export function TopBar() {
   const { role } = useAuth();
@@ -15,7 +16,7 @@ export function TopBar() {
   return (
     <header className="sticky top-0 z-20 border-b border-slate-200/70 bg-white/80 backdrop-blur dark:border-slate-800/70 dark:bg-slate-950/80">
       <div className="mx-auto flex w-full max-w-[1440px] items-center gap-4 px-6 py-4">
-        <Link href="/" className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+        <Link href={workspaceRoot} className="text-lg font-semibold text-slate-900 dark:text-slate-100">
           HRMS Studio
         </Link>
         <div className="hidden h-5 w-px bg-slate-200 md:block dark:bg-slate-800" />
