@@ -38,32 +38,24 @@ export function Sidebar() {
           {(Object.keys(moduleGroups) as Array<keyof typeof moduleGroups>).map((groupKey) => {
             const group = moduleGroups[groupKey];
             const groupModules = modules.filter((module) => module.group === groupKey);
+            const visibleModules = groupModules.filter(
+              (module) => getModuleAccess(role, module.id) !== "none"
+            );
+
+            if (visibleModules.length === 0) {
+              return null;
+            }
+
             return (
               <div key={groupKey} className="space-y-2">
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500">
                   {group.label}
                 </p>
                 <div className="space-y-1">
-                  {groupModules.map((module) => {
+                  {visibleModules.map((module) => {
                     const isActive = pathname.startsWith(module.href);
-                    const access = getModuleAccess(role, module.id);
                     const sharedClasses =
                       "flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium transition";
-                    if (access === "none") {
-                      return (
-                        <div
-                          key={module.id}
-                          className={cn(
-                            sharedClasses,
-                            "cursor-not-allowed text-slate-400 opacity-70 dark:text-slate-500"
-                          )}
-                          aria-disabled
-                        >
-                          <module.icon className="h-4 w-4" />
-                          {module.name}
-                        </div>
-                      );
-                    }
                     return (
                       <Link
                         key={module.id}
