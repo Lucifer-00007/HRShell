@@ -35,9 +35,6 @@ export function TopBar() {
         </div>
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <div className="hidden text-xs font-semibold uppercase tracking-wide text-slate-500 lg:block dark:text-slate-400">
-            Workspace: HR
-          </div>
           <AuthMenu />
         </div>
       </div>
