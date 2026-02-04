@@ -53,9 +53,9 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <div className="relative overflow-hidden pb-20 pt-32 lg:pb-28 lg:pt-40">
+      <section className="relative overflow-hidden pb-20 pt-32 lg:pb-28 lg:pt-40">
         {/* Gradient Background & Blobs */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-background-light to-indigo-50 dark:from-background-dark dark:to-indigo-950/30" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#F3F7FA] to-[#E0E7FF] dark:from-[#0F172A] dark:to-[#1E1B4B]" />
         <div className="absolute right-0 top-0 -mr-20 -mt-20 h-96 w-96 rounded-full bg-blue-400/20 blur-3xl dark:bg-blue-600/10"></div>
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 h-72 w-72 rounded-full bg-purple-400/20 blur-3xl dark:bg-purple-600/10"></div>
 
@@ -63,7 +63,7 @@ export default function LandingPage() {
           <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
             {/* Left Column: Text & Buttons */}
             <div className="space-y-8 lg:col-span-7">
-              <span className="inline-block rounded-md bg-blue-100 px-3 py-1 text-xs font-bold tracking-wide uppercase text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+              <span className="mb-2 inline-block rounded-md bg-blue-100 px-3 py-1 text-xs font-bold tracking-wide uppercase text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
                 New Demo Experience
               </span>
               <h1 className="text-5xl font-extrabold tracking-tight text-text-light leading-[1.1] dark:text-white lg:text-6xl">
@@ -178,7 +178,7 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <div className="mx-auto max-w-7xl space-y-20 px-4 py-20 sm:px-6 lg:px-8">
         {/* Features Section */}
