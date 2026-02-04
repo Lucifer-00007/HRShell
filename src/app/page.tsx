@@ -53,9 +53,8 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pb-20 pt-32 lg:pb-28 lg:pt-40">
-        {/* Gradient Background & Blobs */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#F3F7FA] to-[#E0E7FF] dark:from-[#0F172A] dark:to-[#1E1B4B]" />
+      <section className="relative overflow-hidden pb-20 pt-32 lg:pb-28 lg:pt-40 bg-[linear-gradient(135deg,#F3F7FA_0%,#E0E7FF_100%)] dark:bg-[linear-gradient(135deg,#0F172A_0%,#1E1B4B_100%)]">
+        {/* Blobs */}
         <div className="absolute right-0 top-0 -mr-20 -mt-20 h-96 w-96 rounded-full bg-blue-400/20 blur-3xl dark:bg-blue-600/10"></div>
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 h-72 w-72 rounded-full bg-purple-400/20 blur-3xl dark:bg-purple-600/10"></div>
 
