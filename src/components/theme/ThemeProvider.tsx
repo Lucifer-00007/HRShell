@@ -27,13 +27,18 @@ function getSystemTheme() {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("system");
+  const [theme, setThemeState] = useState<Theme>("system");
   const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("light");
+
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
+    window.localStorage.setItem("theme", newTheme);
+  };
 
   useEffect(() => {
     const stored = window.localStorage.getItem("theme");
     if (stored === "light" || stored === "dark" || stored === "system") {
-      setTheme(stored);
+      setThemeState(stored);
     }
   }, []);
 
@@ -49,8 +54,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       root.classList.remove("dark");
     }
     root.style.colorScheme = nextTheme;
-
-    window.localStorage.setItem("theme", theme);
   }, [theme]);
 
   useEffect(() => {
