@@ -280,106 +280,133 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="mt-8 border-t border-gray-200 pb-10 pt-8 text-sm text-text-muted-light dark:border-gray-800 dark:text-text-muted-dark">
+      </div>
+
+      {/* Footer */}
+      <footer className="w-full border-t border-gray-200 bg-white py-10 text-sm text-slate-600 dark:border-gray-800 dark:bg-slate-950 dark:text-slate-400 md:py-16">
+        <div className="mx-auto max-w-7xl px-5 md:px-10">
           <div className="grid gap-6 md:grid-cols-[1.5fr_1fr_1fr]">
             <div className="space-y-3">
-              <p className="text-sm font-semibold text-text-light dark:text-white">HRMS Studio</p>
-              <p className="text-sm text-text-muted-light dark:text-text-muted-dark">
+              <p className="text-sm font-semibold text-slate-900 dark:text-white">HRMS Studio</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
                 A dedicated landing hub for role-based HRMS previews and secure workspace entry.
               </p>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-text-muted-light dark:text-text-muted-dark">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                 Essentials
               </p>
-              <div className="mt-3 flex flex-col gap-2 text-sm">
-                <a
-                  className="transition hover:text-text-light dark:hover:text-white"
-                  href="#features"
-                >
-                  Features
-                </a>
-                <a
-                  className="transition hover:text-text-light dark:hover:text-white"
-                  href="#roles"
-                >
-                  Roles
-                </a>
-                <a
-                  className="transition hover:text-text-light dark:hover:text-white"
-                  href="#modules"
-                >
-                  Modules
-                </a>
-                <WorkspaceLink className="transition hover:text-text-light dark:hover:text-white">
-                  Workspace
-                </WorkspaceLink>
-              </div>
+              <ul className="mt-3 flex flex-col gap-2 text-sm">
+                <li>
+                  <a
+                    className="transition hover:text-slate-900 dark:hover:text-white"
+                    href="#features"
+                  >
+                    Features
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="transition hover:text-slate-900 dark:hover:text-white"
+                    href="#roles"
+                  >
+                    Roles
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="transition hover:text-slate-900 dark:hover:text-white"
+                    href="#modules"
+                  >
+                    Modules
+                  </a>
+                </li>
+                <li>
+                  <WorkspaceLink className="transition hover:text-slate-900 dark:hover:text-white">
+                    Workspace
+                  </WorkspaceLink>
+                </li>
+              </ul>
             </div>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-text-muted-light dark:text-text-muted-dark">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                 Contact
               </p>
-              <div className="mt-3 flex flex-col gap-2 text-sm">
-                <Link
-                  className="transition hover:text-text-light dark:hover:text-white"
-                  href="/contact"
-                >
-                  Contact page
-                </Link>
-                <a
-                  className="transition hover:text-text-light dark:hover:text-white"
-                  href="mailto:hello@hrms.studio"
-                >
-                  hello@hrms.studio
-                </a>
-                <a
-                  className="transition hover:text-text-light dark:hover:text-white"
-                  href="#top"
-                >
-                  Back to top
-                </a>
-              </div>
+              <ul className="mt-3 flex flex-col gap-2 text-sm">
+                <li>
+                  <Link
+                    className="transition hover:text-slate-900 dark:hover:text-white"
+                    href="/contact"
+                  >
+                    Contact page
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    className="transition hover:text-slate-900 dark:hover:text-white"
+                    href="mailto:hello@hrms.studio"
+                  >
+                    hello@hrms.studio
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="transition hover:text-slate-900 dark:hover:text-white"
+                    href="#top"
+                  >
+                    Back to top
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-between gap-3 text-xs text-text-muted-light dark:text-text-muted-dark">
             <span>© 2026 HRMS Studio. All rights reserved.</span>
-            <div className="flex items-center gap-3">
-              <Link
-                className="transition hover:text-text-light dark:hover:text-white"
-                href="/about"
-              >
-                About
-              </Link>
-              <Link
-                className="transition hover:text-text-light dark:hover:text-white"
-                href="/contact"
-              >
-                Contact
-              </Link>
-              <Link
-                className="transition hover:text-text-light dark:hover:text-white"
-                href="/privacy"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                className="transition hover:text-text-light dark:hover:text-white"
-                href="/terms"
-              >
-                Terms
-              </Link>
-              <Link
-                className="transition hover:text-text-light dark:hover:text-white"
-                href="/support"
-              >
-                Support
-              </Link>
-            </div>
+            <ul className="flex items-center gap-3">
+              <li>
+                <Link
+                  className="transition hover:text-text-light dark:hover:text-white"
+                  href="/about"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="transition hover:text-text-light dark:hover:text-white"
+                  href="/contact"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="transition hover:text-text-light dark:hover:text-white"
+                  href="/privacy"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="transition hover:text-text-light dark:hover:text-white"
+                  href="/terms"
+                >
+                  Terms
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="transition hover:text-text-light dark:hover:text-white"
+                  href="/support"
+                >
+                  Support
+                </Link>
+              </li>
+            </ul>
           </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   );
 }

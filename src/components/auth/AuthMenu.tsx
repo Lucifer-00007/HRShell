@@ -1,9 +1,11 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { Badge } from "@/src/components/ui/Badge";
 import { cn } from "@/src/lib/cn";
 import { roleMeta } from "@/src/config/rbac";
+import { landingRoot } from "@/src/config/routes";
 import { useAuth } from "@/src/components/auth/AuthProvider";
 
 function initialsFromName(name: string) {
@@ -114,11 +116,19 @@ export function AuthMenu() {
             );
           })}
         </div>
+        
+        <Link
+          href={landingRoot}
+          className="mt-4 flex w-full items-center justify-center rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-600 transition hover:border-slate-300 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700"
+        >
+          Back to Home
+        </Link>
+
         {user ? (
           <button
             type="button"
             onClick={handleSignOut}
-            className="mt-4 w-full rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-600 transition hover:border-slate-300 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700"
+            className="mt-2 w-full rounded-full border border-slate-200 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-600 transition hover:border-slate-300 dark:border-slate-800 dark:text-slate-300 dark:hover:border-slate-700"
           >
             Sign out
           </button>
