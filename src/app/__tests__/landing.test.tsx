@@ -62,9 +62,5 @@ describe("LandingPage", () => {
 
     expect(screen.getByRole("link", { name: /launch workspace/i })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /explore roles/i })).toBeInTheDocument();
-
-    expect(
-      screen.getByAltText(/preview of the protected hrms workspace/i)
-    ).toBeInTheDocument();
   });
 });

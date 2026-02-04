@@ -244,17 +244,6 @@ export default function LandingPage() {
           </div>
 
           <div className="space-y-5">
-            <Card className="border-slate-200/70 bg-white/90 p-4 shadow-xl dark:border-slate-800/70 dark:bg-slate-900/70 motion-safe:animate-fade-up">
-              <Image
-                src="/images/landing/hero-preview.png"
-                alt="Preview of the protected HRMS workspace"
-                width={1200}
-                height={900}
-                priority
-                sizes="(min-width: 1024px) 520px, 100vw"
-                className="h-auto w-full rounded-2xl border border-slate-200/70 dark:border-slate-800/70"
-              />
-            </Card>
             <Card className="border-slate-200/70 bg-white/90 p-6 dark:border-slate-800/70 dark:bg-slate-900/70 motion-safe:animate-fade-up motion-safe:[animation-delay:160ms]">
               <div className="flex items-center justify-between">
                 <Badge tone="success">Role access</Badge>
