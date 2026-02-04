@@ -12,3 +12,20 @@
     font-family: var(--font-space), ui-sans-serif, system-ui, -apple-system, sans-serif;
   }
 }
+
+@layer utilities {
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 700ms ease-out both;
+  }
+}
