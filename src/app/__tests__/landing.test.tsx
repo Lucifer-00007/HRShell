@@ -1,11 +1,12 @@
 import type { ComponentProps } from "react";
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import LandingPage from "@/src/app/page";
 import { AuthProvider } from "@/src/components/auth/AuthProvider";
 import { ThemeProvider } from "@/src/components/theme/ThemeProvider";
 
 jest.mock("next/dynamic", () =>
-  (importer: unknown, options: { loading?: () => JSX.Element }) => {
+  (_importer: unknown, options: { loading?: () => JSX.Element }) => {
     const DynamicComponent = () => (options?.loading ? options.loading() : null);
     return DynamicComponent;
   }
@@ -37,7 +38,7 @@ const renderLanding = () =>
 beforeAll(() => {
   Object.defineProperty(window, "matchMedia", {
     writable: true,
-    value: jest.fn().mockImplementation((query) => ({
+    value: jest.fn().mockImplementation((query: string) => ({
       matches: false,
       media: query,
       onchange: null,
