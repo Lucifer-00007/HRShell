@@ -245,6 +245,9 @@ export default function LandingPage() {
                 Contact
               </p>
               <div className="mt-3 flex flex-col gap-2 text-sm">
+                <Link className="transition hover:text-slate-900 dark:hover:text-white" href="/contact">
+                  Contact page
+                </Link>
                 <a className="transition hover:text-slate-900 dark:hover:text-white" href="mailto:hello@hrms.studio">
                   hello@hrms.studio
                 </a>
@@ -257,8 +260,14 @@ export default function LandingPage() {
           <div className="mt-8 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
             <span>© 2026 HRMS Studio. All rights reserved.</span>
             <div className="flex items-center gap-3">
+              <Link className="transition hover:text-slate-900 dark:hover:text-white" href="/about">
+                About
+              </Link>
+              <Link className="transition hover:text-slate-900 dark:hover:text-white" href="/contact">
+                Contact
+              </Link>
               <Link className="transition hover:text-slate-900 dark:hover:text-white" href="/privacy">
-                Privacy
+                Privacy Policy
               </Link>
               <Link className="transition hover:text-slate-900 dark:hover:text-white" href="/terms">
                 Terms
